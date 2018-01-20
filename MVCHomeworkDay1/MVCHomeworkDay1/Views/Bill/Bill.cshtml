@@ -1,4 +1,4 @@
-﻿@model MVCHomeworkDay1.Models.ViewModel.BillViewModel
+﻿@model IEnumerable<MVCHomeworkDay1.Models.Bill> 
 
 @{
     ViewBag.Title = "Bill";
@@ -18,7 +18,7 @@
                 <th>金額</th>
             </tr>
             @{int i = 1; }
-            @foreach (var item in Model.BillData)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>@i</td>
@@ -27,6 +27,7 @@
                     <td>@item.money</td>
                 </tr>
                 i++;
+
             }
         </table>
     </div>

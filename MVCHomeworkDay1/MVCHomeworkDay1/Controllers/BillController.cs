@@ -23,9 +23,8 @@ namespace MVCHomeworkDay1.Controllers
                 obj.date = DateTime.Now.ToString("yyyy-mm-dd");
                 list.Add(obj);
             }
-            BillViewModel model = new BillViewModel();
-            model.BillData = list;
-            return View(model);
+            
+            return View(list);
         }
     }
 }
