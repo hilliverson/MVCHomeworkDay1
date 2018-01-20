@@ -13,14 +13,14 @@ namespace MVCHomeworkDay1.Controllers
         // GET: Bill
         public ActionResult Bill()
         {
-            List<Bill> list = new List<Bill>();
+            List<BillViewModel> list = new List<BillViewModel>();
             Random random = new Random();
             for (int i = 0; i < 100; i++)
             {
-                Bill obj = new Bill();
+                BillViewModel obj = new BillViewModel();
                 obj.type = "支出";
                 obj.money = random.Next(0, 10000);
-                obj.date = DateTime.Now.ToString("yyyy-mm-dd");
+                obj.date = DateTime.Now.ToString("yyyy-MM-dd");
                 list.Add(obj);
             }
             

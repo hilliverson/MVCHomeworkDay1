@@ -7,8 +7,10 @@ namespace MVCHomeworkDay1.Models.ViewModel
 {
     public class BillViewModel
     {
-       
-        public List<Bill> BillData { get; set; }
-       
+
+        public string type { get; set; }
+        public string date { get; set; }
+        public int money { get; set; }
+
     }
 }
