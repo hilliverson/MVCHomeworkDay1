@@ -30,14 +30,14 @@ namespace MVCHomeworkDay1.Controllers
             {
                 BillViewModel obj = new BillViewModel();
                 obj.type = Convert.ToString(item.Categoryyy);
-                obj.money = item.Amounttt;
+                obj.money = Convert.ToInt32(item.Amounttt);
                 obj.date = item.Dateee.ToString("yyyy-MM-dd");
                 ViewList.Add(obj);
 
             }
 
 
-            return View(list);
+            return View(ViewList);
         }
     }
 }
