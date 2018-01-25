@@ -24,7 +24,7 @@ public class AccountBookService
         {
             //List<AccountBook> list = conn.Query<AccountBook>("select * from AccountBook").ToList();
 
-            List<AccountBook> list = conn.Query<AccountBook>("select Categoryyy,Amounttt,Dateee,Remarkkk from AccountBook").ToList();
+            List<AccountBook> list = conn.Query<AccountBook>("select Id,Categoryyy,Amounttt,Dateee,Remarkkk from AccountBook").ToList();
 
             return list;
         }
