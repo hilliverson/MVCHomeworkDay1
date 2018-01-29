@@ -5,12 +5,14 @@ using System.Web;
 
 namespace MVCHomeworkDay1.Models.ViewModel
 {
+    
+
     public class BillViewModel
     {
-
-        public string type { get; set; }
-        public string date { get; set; }
-        public int money { get; set; }
-
+        public Guid? Id { get; set; }
+        public string Categoryyy { get; set; }
+        public decimal Amounttt { get; set; }
+        public DateTime Dateee { get; set; }
+        public string Remarkkk { get; set; }
     }
 }

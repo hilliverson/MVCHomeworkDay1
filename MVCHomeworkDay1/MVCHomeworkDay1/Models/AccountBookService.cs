@@ -5,7 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
-using MVCHomeworkDay1.Models.DataModel;
 using MVCHomeworkDay1.Models.ViewModel;
 
 public class AccountBookService
@@ -18,15 +17,21 @@ public class AccountBookService
 
     }
 
-    public List<AccountBook> Get()
+    public List<BillViewModel> Get()
     {
         using (var conn = new SqlConnection(_ConnStr))
         {
-            //List<AccountBook> list = conn.Query<AccountBook>("select * from AccountBook").ToList();
+            List<BillViewModel> list = conn.Query<BillViewModel>("select Id,Categoryyy,Amounttt,Dateee,Remarkkk from AccountBook").ToList();
+            var ModelList = list.Select(x => new BillViewModel
+            {
+                Id = x.Id,
+                Categoryyy = (x.Categoryyy == "0") ? "支出" : "收入",
+                Amounttt = x.Amounttt,
+                Dateee = x.Dateee,
+                Remarkkk = x.Remarkkk
+            }).ToList();
 
-            List<AccountBook> list = conn.Query<AccountBook>("select Id,Categoryyy,Amounttt,Dateee,Remarkkk from AccountBook").ToList();
-
-            return list;
+            return ModelList;
         }
     }
 }
