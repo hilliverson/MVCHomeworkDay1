@@ -10,9 +10,9 @@ namespace MVCHomeworkDay1.Models.ViewModel
     public class BillViewModel
     {
         public Guid? Id { get; set; }
-        public string Categoryyy { get; set; }
-        public decimal Amounttt { get; set; }
-        public DateTime Dateee { get; set; }
-        public string Remarkkk { get; set; }
+        public string category { get; set; }
+        public decimal money { get; set; }
+        public DateTime date { get; set; }
+        public string description { get; set; }
     }
 }

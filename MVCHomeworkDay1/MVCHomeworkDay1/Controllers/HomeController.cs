@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVCHomeworkDay1.Models.ViewModel;
+using MVCHomeworkDay1.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,12 @@ namespace MVCHomeworkDay1.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(BillViewModel InputData)
         {
-            return View();
+            var items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text="支出",Value= })
+
+            return View(InputData);
         }
 
         public ActionResult About()
@@ -25,6 +30,13 @@ namespace MVCHomeworkDay1.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Bill()
+        {
+            AccountBookService accountBook = new AccountBookService();
+            return View(accountBook.Get());
         }
     }
 }
