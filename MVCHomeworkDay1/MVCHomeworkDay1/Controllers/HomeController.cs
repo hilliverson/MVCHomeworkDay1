@@ -13,8 +13,9 @@ namespace MVCHomeworkDay1.Controllers
         public ActionResult Index(BillViewModel InputData)
         {
             var items = new List<SelectListItem>();
-            items.Add(new SelectListItem { Text="支出",Value= })
-
+            items.Add(new SelectListItem { Text = "支出", Value = "0" });
+            items.Add(new SelectListItem { Text = "收入", Value = "1" });
+            ViewData["Category"] = items;
             return View(InputData);
         }
 
