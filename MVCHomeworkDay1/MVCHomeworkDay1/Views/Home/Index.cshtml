@@ -2,35 +2,40 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<div class="container body-content">
 
+@using (Html.BeginForm())
+{
     <div class="well">
         <form class="form-horizontal">
             <div class="form-group">
                 <label for="category" class="col-sm-2 control-label">類別</label>
                 <div class="col-sm-10">
                     @Html.DropDownList("category", (IEnumerable<SelectListItem>)ViewData["Category"], new { @class = "form-control" })
-                    
+
                 </div>
             </div>
             <div class="form-group">
                 <label for="money" class="col-sm-2 control-label">金額</label>
                 <div class="col-sm-10">
-                    @Html.EditorFor(model => model.money, new { htmlAttributes = new { @class = "form-control" } })
-                    
+                    @Html.TextBoxFor(model => model.money, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.money)
                 </div>
             </div>
             <div class="form-group">
                 <label for="date" class="col-sm-2 control-label">日期</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="date" placeholder="日期">
+                    @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.date)
                 </div>
             </div>
             <div class="form-group">
                 <label for="description" class="col-sm-2 control-label">備註</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="description">
-                </textarea>
+                    @Html.TextAreaFor(model => model.description, new { maxlength = 100, @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.description)
+
+                 
+
                 </div>
             </div>
             <div class="form-group">
@@ -40,9 +45,9 @@
             </div>
         </form>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        @Html.Action("Bill")
+}
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Action("Bill")
+        </div>
     </div>
-</div>

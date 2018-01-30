@@ -10,12 +10,24 @@ namespace MVCHomeworkDay1.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Index()
+        {
+            var items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "支出", Value = "0" });
+            items.Add(new SelectListItem { Text = "收入", Value = "1" });
+            ViewData["Category"] = items;
+
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult Index(BillViewModel InputData)
         {
             var items = new List<SelectListItem>();
             items.Add(new SelectListItem { Text = "支出", Value = "0" });
             items.Add(new SelectListItem { Text = "收入", Value = "1" });
             ViewData["Category"] = items;
+
             return View(InputData);
         }
 
