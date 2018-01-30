@@ -20,11 +20,13 @@
             @{int i = 1; }
             @foreach (var item in Model)
             {
+                string color = "blue";
+                if (item.category == "支出") { color = "red"; }
                 <tr>
-                    <td>@i</td>
-                    <td>@item.category</td>
-                    <td>@item.date.ToString("yyyy-MM-dd")</td>
-                    <td>@item.money</td>
+                    <td><font color="@color">@i</font></td>
+                    <td><font color="@color">@item.category</font></td>
+                    <td><font color="@color">@item.date.ToString("yyyy-MM-dd")</font></td>
+                    <td><font color="@color">@item.money</font></td>
                 </tr>
                 i++;
 
