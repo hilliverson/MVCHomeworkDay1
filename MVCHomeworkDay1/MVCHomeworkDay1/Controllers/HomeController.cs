@@ -28,6 +28,9 @@ namespace MVCHomeworkDay1.Controllers
             items.Add(new SelectListItem { Text = "收入", Value = "1" });
             ViewData["Category"] = items;
 
+            AccountBookService accountBook = new AccountBookService();
+            accountBook.Insert(InputData);
+
             return View(InputData);
         }
 

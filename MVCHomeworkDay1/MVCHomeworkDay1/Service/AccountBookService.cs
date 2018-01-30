@@ -20,6 +20,27 @@ namespace MVCHomeworkDay1.Service
 
         }
 
+        public void Insert(BillViewModel data)
+        {
+            string sql = "INSERT INTO AccountBook (id,Categoryyy,Amounttt,Dateee,remarkkk) Values (@id,@category,@amount,@date,@remark);";
+
+            using (var connection = new SqlConnection(_ConnStr))
+            {
+                connection.Open();
+
+                var affectedRows = connection.Execute(sql, new
+                {
+                    id = new Guid(),
+                    category = data.category,
+                    amount = data.money,
+                    date = data.date,
+                    remark = data.description
+
+                });
+
+            }
+        }
+
         public List<BillViewModel> Get()
         {
             using (var conn = new SqlConnection(_ConnStr))
