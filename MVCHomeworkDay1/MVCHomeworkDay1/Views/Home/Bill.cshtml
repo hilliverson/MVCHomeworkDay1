@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<MVCHomeworkDay1.Models.ViewModel.BillViewModel> 
 
 @{
+
     ViewBag.Title = "Bill";
 }
 
+
 <h2>Bill</h2>
-
-
-
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-hover">
@@ -22,12 +21,12 @@
             {
                 string color = "blue";
                 if (item.category == "支出") { color = "red"; }
-                <tr>
-                    <td><font color="@color">@i</font></td>
-                    <td><font color="@color">@item.category</font></td>
-                    <td><font color="@color">@item.date.ToString("yyyy-MM-dd")</font></td>
-                    <td><font color="@color">@item.money</font></td>
-                </tr>
+            <tr>
+                @ListHelper.DisplayRow(@color, @Convert.ToString(i))
+                @ListHelper.DisplayRow(@color, item.category)
+                @ListHelper.DisplayRow(@color, @item.date.ToString("yyyy-MM-dd"))
+                @ListHelper.DisplayRow(@color, @Convert.ToString(item.money))
+            </tr>
                 i++;
 
             }
